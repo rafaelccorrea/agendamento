@@ -27,13 +27,13 @@ class AgendaService {
     }
   }
 
-  static async updateAgenda(agendaId, userId, updateAbout) {
+  static async updateAgenda(agendaId, userId, update) {
     try {
 
       const Agenda = await database.Agenda.findByPk(agendaId);
 
       if (Agenda) {
-        const updatedAgenda = await database.Agenda.update(updateAbout, {
+        const updatedAgenda = await database.Agenda.update(update, {
           where: { id: agendaId, userId: userId },
           returning: true,
           plain: true,
