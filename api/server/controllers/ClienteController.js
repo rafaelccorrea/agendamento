@@ -58,6 +58,7 @@ class ClienteController {
           delete user.password;
           request.setSuccess(200, "Logado com sucesso!", {
             ...user,
+            token: generateToken(user),
           });
         } else {
           request.setError("Erro ao verificar as credenciais de login", 404);

@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 const generateToken = (data) => {
-  const token = jwt.sign(data, "letsfood", {
+  const token = jwt.sign(data, "agendamento", {
     expiresIn: 86400,
   });
 

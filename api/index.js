@@ -4,7 +4,8 @@ import cors from "cors";
 import { TokenMiddleware } from "./server/middlewares";
 
 import {
-  ClienteRoutes
+  ClienteRoutes,
+  AgendaRoutes
 } from './server/routes'
 
 const port = process.env.PORT || 8000;
@@ -25,6 +26,8 @@ app.get("*", (req, res) =>
 app.use("/api", ClienteRoutes);
 
 app.use("/api/*", TokenMiddleware);
+
+app.use("/api/agenda", AgendaRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on PORT ${port}`);
